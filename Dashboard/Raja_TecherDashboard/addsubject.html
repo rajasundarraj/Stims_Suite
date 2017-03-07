@@ -13,9 +13,8 @@
 <link href="css/dashboard.css" rel="stylesheet">    
 <link href="css/pages/dashboard.css" rel="stylesheet">
 </head>
-
 <body>
-    <div class="navbar  navbar-fixed-top">
+<div class="navbar  navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container"> 
         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -70,8 +69,8 @@
         </li> 
           <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-th-list"></i><span>Subjects</span> <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="viewsubject.html">View Subject List</a></li>
-            <li><a href="addsubject.html">Add Subjects</a></li>
+            <li><a href="#">View Subject List</a></li>
+            <li><a href="#">Add Subjects</a></li>
           </ul>
         </li>
            <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-book"></i><span>Library</span> <b class="caret"></b></a>
@@ -91,7 +90,8 @@
   </div>
   <!-- /subnavbar-inner --> 
 </div>
-<div class="main">
+
+    <div class="main">
 	
 	<div class="main-inner">
 
@@ -105,104 +105,124 @@
 	      			
 	      			<div class="widget-header">
 	      				<i class="icon-user"></i>
-	      				<h3>Student marks</h3>
-	  				</div> <!-- /widget-header -->
-					
+	      				<h3>Subject</h3>
+	  				</div> 
 					<div class="widget-content">
-					 <div>
-							<form action="#">
-							  Exam:<input list="plan" type="text">
- 								<datalist id="plan">
-								    <option value="I mid term"></option>
-								    <option value="II mid term"></option>
-								    <option value="III mid term"></option>
-								</datalist>
-							 class:<input list="hosting-plan" type="text">
- 								<datalist id="hosting-plan">
-								    <option value="I"></option>
-								    <option value="II"></option>
-								    <option value="III"></option>
-								</datalist>
-								Section:<input list="hosting" type="text">
- 								<datalist id="hosting">
-								    <option value="A"></option>
-								    <option value="B"></option>
-								    <option value="C"></option>
-								</datalist>
-								<button type="button">GO</button>
- 
-							 </form>
-
-							</form>
-					</div>
-
-
-						 <div class="table-responsive">
-					        <table class="table table-bordered">
-					            <thead>
-					                <tr>
-					                    <th>S.No</th>
-					                    <th>Name</th>
-					                    <th>Roll No</th>
-					                    <th>Tamil</th>
-					                    <th>English</th>
-					                    <th>Maths</th>
-					                    <th>Science</th>
-					                    <th>Social Science</th>
-					                     <th>Action</th>
-
-					                </tr>
-					            </thead>
-					            <tbody>
-					                <tr>
-					                    <td>1</td>
-					                    <td>Raja</td>
-					                    <td>12345</td>
-					                    <td>98</td>
-					                    <td>89</td>
-					                    <td>90</td>
-					                    <td>95</td>
-					                    <td>84</td>
-					                    <td><i class="icon-edit"></i>
-					                   <i class="icon-save"></i>
-					                    </td>
-					                </tr>
-					                <tr>
-					                    <td>1</td>
-					                    <td>Raja</td>
-					                    <td>12345</td>
-					                    <td>98</td>
-					                    <td>89</td>
-					                    <td>90</td>
-					                    <td>95</td>
-					                    <td>84</td>
-					                     <td><i class="icon-edit"></i>
-					                    <i class="icon-save"></i>
-					                    </td>
-					                  
-					            </tbody>
-					        </table>
-					         Show<input list="plan" type="text">
- 								<datalist id="plan">
-								    <option value="10"></option>
-								    <option value="9"></option>
-								    <option value="8"></option>
-								</datalist>
-					        </div>
-					        </div>
-					</div> <!-- /widget-content -->						
-				</div> <!-- /widget -->	
-		    </div> <!-- /span8 -->
-	     </div> <!-- /row -->
-	    </div> <!-- /container -->	    
-	</div> <!-- /main-inner -->
-
-</body>
+                        <div class="tabbable">
+						<ul class="nav nav-tabs">
+						  <li>
+						    <a href="#formcontrols" data-toggle="tab"><i class="icon-tasks"></i> Subject 
+						    list</a>
+						  </li>
+						  <li  class="active"><a href="#jscontrols" data-toggle="tab"><i class="icon-plus"></i> Add Subject</a></li>
+						</ul>
+						
+						<br>
+						
+							<div class="tab-content">
+								<div class="tab-pane" id="jscontrols">
+								<form id="edit-profile" class="form-horizontal">
+									<fieldset>
+										<div class="control-group">											
+											<label class="control-label" >Subject</label>
+											<div class="controls">
+												<input type="text" class="span6" id="Subject">
+											</div> 			
+										</div> 
+										
+										
+										<div class="control-group">											
+											<label class="control-label">Class</label>
+											<div class="controls">
+												<select id="text" name="text">
+														<option value="First Choice">I</option>
+														<option value="Second Choice">II</option>
+														<option value="Third Choice">III</option>
+														<option value="Fourth Choice">IV</option>
+													</select>
+											</div> 			
+										</div> 
+										
+										
+										<div class="control-group">											
+											<label class="control-label">Class section</label>
+											<div class="controls">
+												<select id="text" name="text">
+													<option value="First Choice">A</option>
+													<option value="Second Choice">B</option>
+													<option value="Third Choice">C</option>
+													<option value="Fourth Choice">D</option>
+												</select>
+											</div> 			
+										</div> 
+										<div class="control-group">											
+											<label class="control-label">Teacher</label>
+											<div class="controls">
+												<select id="text" name="text">
+													<option value="First Choice">Asha</option>
+													<option value="Second Choice">Basha</option>
+													<option value="Third Choice">Casha</option>
+													<option value="Fourth Choice">Dasha</option>
+												</select>
+											</div> 		
+										</div> 		
+								
+								<div class="control-group">											
+											<label class="control-label" >Edition</label>
+											<div class="controls">
+												<input type="text" class="span4" id="Edition">
+											</div> 		
+										</div> 		
+								
+								<div class="control-group">											
+											<label class="control-label" >Author Name</label>
+											<div class="controls">
+												<input type="text" class="span4" id="Author Name">
+											</div> 		
+										</div> 
+								<div class="control-group">											
+											<label class="control-label" >Syllabus</label>
+											<div class="controls">
+												<input type="text" class="span4" id="Syllabus">
+											<input type="file"/>
+									
+																			
+										<br /><br />										                                                                                                               																					<div class="form-actions">
+											<button type="submit" class="btn btn-primary">Save</button> 
+											<button class="btn">Cancel</button>
+										</div>
+									</fieldset>
+								</form>
+								</div>
+								<div class="tab-pane active" id="formcontrols">
+									<form id="edit-profile2" class="form-vertical">
+										<fieldset>
+												
+										</fieldset>
+									</form>
+								</div>
+								
+							</div>
+						  
+						  
+						</div>																												
+					</div> 
+				</div> 
+	      		
+		    </div>      		      		      	
+	      	
+	      </div> 
+	
+	    </div> 
+	    
+	</div> 
+    
+</div>
 <script src="js/jquery-1.7.2.min.js"></script> 
 <script src="js/excanvas.min.js"></script> 
 <script src="js/chart.min.js" type="text/javascript"></script> 
 <script src="js/bootstrap.js"></script>
 <script language="javascript" type="text/javascript" src="js/full-calendar/fullcalendar.min.js"></script>
- 
-<script src="js/base.js"></script> 
+<script src="js/base.js"></script>    
+</body>
 </html>

@@ -12,8 +12,18 @@
 <link href="css/style.css" rel="stylesheet">
 <link href="css/dashboard.css" rel="stylesheet">    
 <link href="css/pages/dashboard.css" rel="stylesheet">
-</head>
+ <style>
+  .img-circle{     
+    width: 10%;
+ 
+    border-radius: 24px;
+  }
 
+  .Table th{
+  	    width: 100px;
+  }
+  </style>    
+</head>
 <body>
     <div class="navbar  navbar-fixed-top">
   <div class="navbar-inner">
@@ -47,12 +57,13 @@
           <ul class="dropdown-menu">
             <li><a href="viewstudentinfo.html">View Student Info</a></li>
             <li><a href="studentmarks.html">View Student Marks</a></li>
+            <li><a href="todaysatten.html">View Attendance</a></li>
             <li><a href="viewparent.html">View Parent</a></li>
           </ul>
         </li>
            <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-list-alt"></i><span>Attendance</span> <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="todaysatten.html">View Attendance</a></li>
+            <li><a href="ViewAttendance.html">View Attendance</a></li>
             <li><a href="viewAttendanceByDate.html">View Attendance By Date</a></li>
           </ul>
         </li>
@@ -70,8 +81,8 @@
         </li> 
           <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-th-list"></i><span>Subjects</span> <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="viewsubject.html">View Subject List</a></li>
-            <li><a href="addsubject.html">Add Subjects</a></li>
+            <li><a href="#">View Subject List</a></li>
+            <li><a href="#">Add Subjects</a></li>
           </ul>
         </li>
            <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-book"></i><span>Library</span> <b class="caret"></b></a>
@@ -106,103 +117,82 @@
 	      			<div class="widget-header">
 	      				<i class="icon-user"></i>
 	      				<h3>Student marks</h3>
-	  				</div> <!-- /widget-header -->
+	  				</div> 
 					
 					<div class="widget-content">
 					 <div>
-							<form action="#">
-							  Exam:<input list="plan" type="text">
+							<form action="#">Choose Exam:
+		                    <input list="plan" type="text">
  								<datalist id="plan">
 								    <option value="I mid term"></option>
 								    <option value="II mid term"></option>
 								    <option value="III mid term"></option>
-								</datalist>
-							 class:<input list="hosting-plan" type="text">
- 								<datalist id="hosting-plan">
-								    <option value="I"></option>
-								    <option value="II"></option>
-								    <option value="III"></option>
-								</datalist>
-								Section:<input list="hosting" type="text">
- 								<datalist id="hosting">
-								    <option value="A"></option>
-								    <option value="B"></option>
-								    <option value="C"></option>
-								</datalist>
-								<button type="button">GO</button>
- 
-							 </form>
+				                </datalist>
+								From: <input type="date" name="bdaymonth">
+                                To: <input type="date" name="bdaymonth">
+								<div class="btn btn-primary">GO</div>
+				            </form>
 
 							</form>
 					</div>
-
-
-						 <div class="table-responsive">
+	                       <div class="table-responsive">
 					        <table class="table table-bordered">
 					            <thead>
 					                <tr>
-					                    <th>S.No</th>
-					                    <th>Name</th>
-					                    <th>Roll No</th>
-					                    <th>Tamil</th>
-					                    <th>English</th>
-					                    <th>Maths</th>
-					                    <th>Science</th>
-					                    <th>Social Science</th>
-					                     <th>Action</th>
-
+					                    <th>Subject code</th>
+					                    <th>Subject</th>
+					                    <th>Date</th>
+					                    <th>Session</th>					           
 					                </tr>
 					            </thead>
 					            <tbody>
 					                <tr>
-					                    <td>1</td>
-					                    <td>Raja</td>
-					                    <td>12345</td>
-					                    <td>98</td>
-					                    <td>89</td>
-					                    <td>90</td>
-					                    <td>95</td>
-					                    <td>84</td>
-					                    <td><i class="icon-edit"></i>
-					                   <i class="icon-save"></i>
-					                    </td>
-					                </tr>
+					                    <td>001</td>
+					                    <td>Tamil</td>
+					                    <td>1/2/2017</td>
+					                    <td>11.30 - 12.30</td>					               
+					               </tr>
 					                <tr>
-					                    <td>1</td>
-					                    <td>Raja</td>
-					                    <td>12345</td>
-					                    <td>98</td>
-					                    <td>89</td>
-					                    <td>90</td>
-					                    <td>95</td>
-					                    <td>84</td>
-					                     <td><i class="icon-edit"></i>
-					                    <i class="icon-save"></i>
-					                    </td>
-					                  
-					            </tbody>
-					        </table>
-					         Show<input list="plan" type="text">
- 								<datalist id="plan">
-								    <option value="10"></option>
-								    <option value="9"></option>
-								    <option value="8"></option>
-								</datalist>
+					                    <td>002</td>
+					                    <td>English</td>
+					                    <td>2/2/2017</td>
+					                   <td>03.30 - 4.30</td>
+					                   </tr>
+					                   <tr>
+					                    <td>002</td>
+					                    <td>English</td>
+					                    <td>2/2/2017</td>
+					                   <td>03.30 - 4.30</td>
+					                   </tr>					                    	
+					                    </tbody>			                   				                 					           
+					        </table>					       
 					        </div>
 					        </div>
-					</div> <!-- /widget-content -->						
-				</div> <!-- /widget -->	
+						</div> <!-- /widget-content -->
+						
+				</div> <!-- /widget -->
+	      		
 		    </div> <!-- /span8 -->
-	     </div> <!-- /row -->
-	    </div> <!-- /container -->	    
+	      	
+	      	</div> <!-- /row -->
+	
+	    </div> <!-- /container -->
+	    
 	</div> <!-- /main-inner -->
+    
+</div> <!-- /main -->
 
-</body>
+    
+    
+    
+    
+    
+    
 <script src="js/jquery-1.7.2.min.js"></script> 
 <script src="js/excanvas.min.js"></script> 
 <script src="js/chart.min.js" type="text/javascript"></script> 
 <script src="js/bootstrap.js"></script>
 <script language="javascript" type="text/javascript" src="js/full-calendar/fullcalendar.min.js"></script>
- 
-<script src="js/base.js"></script> 
+<script src="js/base.js"></script>    
+</body>
 </html>

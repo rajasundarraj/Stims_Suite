@@ -12,6 +12,20 @@
 <link href="css/style.css" rel="stylesheet">
 <link href="css/dashboard.css" rel="stylesheet">    
 <link href="css/pages/dashboard.css" rel="stylesheet">
+    
+<style type="text/css">
+	.bs-example{
+    	margin: 100px 50px;
+    }
+    /* Custom styles for popover */
+    .custom-title{
+        margin: 0;
+    }
+    .custom-title .glyphicon{
+        vertical-align: top;
+    }
+</style>    
+    
 </head>
 
 <body>
@@ -47,19 +61,18 @@
           <ul class="dropdown-menu">
             <li><a href="viewstudentinfo.html">View Student Info</a></li>
             <li><a href="studentmarks.html">View Student Marks</a></li>
-            <li><a href="todaysatten.html">View Attendance</a></li>
             <li><a href="viewparent.html">View Parent</a></li>
           </ul>
         </li>
            <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-list-alt"></i><span>Attendance</span> <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="ViewAttendance.html">View Attendance</a></li>
-            <li><a href="#">View Attendance By Date</a></li>
+            <li><a href="todaysatten.html">View Attendance</a></li>
+            <li><a href="viewAttendanceByDate.html">View Attendance By Date</a></li>
           </ul>
         </li>
         <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-list"></i><span>Exams</span> <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="#">View Exams</a></li>
+            <li><a href="exams.html">View Exams</a></li>
             <li><a href="#">View Exam Duty Schedule</a></li>
           </ul>
         </li>
@@ -71,8 +84,8 @@
         </li> 
           <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-th-list"></i><span>Subjects</span> <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="#">View Subject List</a></li>
-            <li><a href="#">Add Subjects</a></li>
+            <li><a href="viewsubject.html">View Subject List</a></li>
+            <li><a href="addsubject.html">Add Subjects</a></li>
           </ul>
         </li>
            <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-book"></i><span>Library</span> <b class="caret"></b></a>
@@ -150,16 +163,17 @@
 					                    <td>Raja</td>
 					                    <td>12345</td>
 					                      <td>raja@gmail.com</td>
-                                          <td><button class="btn btn-primary">View Parent</button></td>
-					               
-					                </tr>
-					                <tr>
+                                          <td class="bs-example">
+                                         <button type="button" class="btn btn-primary btn-lg" id="myPopover" data-toggle="popover">View Parent</button></td>
+					               </tr>					                
+                                    <tr>
 					                    <td><img class="img-circle" src="images/2.jpg"></td>
 					                    <td>Raja</td>
 					                    <td>12345</td>
 					                      <td>raja@gmail.com</td>
-                                        <td><button class="btn btn-primary">View Parent</button></td>
-					                          </tr>
+                                         <td class="bs-example">
+                                            <button type="button" class="btn btn-primary btn-lg" id="myPopover" data-toggle="popover">View Parent</button></td>
+					               </tr>
 					                
 
 					            </tbody>
@@ -173,6 +187,26 @@
 	      </div> <!-- /row -->
 	    </div> <!-- /container -->
 	    </div>
+    
+    <script src="js/jquery-1.7.2.min.js"></script> 
+<script src="js/excanvas.min.js"></script> 
+<script src="js/chart.min.js" type="text/javascript"></script> 
+<script src="js/bootstrap.js"></script>
+<script language="javascript" type="text/javascript" src="js/full-calendar/fullcalendar.min.js"></script>
+ 
+<script src="js/base.js"></script> 
+    <script type="text/javascript">
+$(document).ready(function(){
+    $("#myPopover").popover({
+        title: '<h3 class="custom-title"><span class="glyphicon glyphicon-info-sign"></span> Popover Info</h3>',
+        content : "<p>This is a <em>simple example</em> demonstrating how to insert HTML code inside <mark><strong>Bootstrap popover</strong></mark>.</p>",
+        html: true
+    }); 
+});
+</script>
+    
+    
+    
 </body>
 </html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="">
