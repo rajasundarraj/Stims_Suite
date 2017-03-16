@@ -19,15 +19,16 @@
     }
 </style>
 </head>       
-<body ng-app="myApp3">
+<body ng-app="myApp1">
 <div ng-include="'header.html'"></div>
     <div class="pusher">
-        <div class="ui container" ng-controller="viewparent">
+        <div class="ui container" ng-controller="studentinfo">
             
-            <h3 class="ui header">Student Marks</h3>
+            <h3 class="ui header">Student Info</h3>
             <div class="ui divider"></div>
              <div>
 							<form action="#">
+							 
 							 class:<input list="hosting-plan" style="padding:15px;" type="text">
  								<datalist id="hosting-plan">
 								    <option value="I"></option>
@@ -51,7 +52,7 @@
             <table id="example" class="ui compact celled  table" cellspacing="0" width="100%">
                 <thead>
                     <tr>
-                        <th style="background:#581850; color:#fff;" ng-repeat="(header, values) in names[0]">{{ header }}</th>
+                        <th style="background:#2e6da4; color:#fff;" ng-repeat="(header, values) in names[0]">{{ header }}</th>
                     </tr>
                 </thead>
                 <tbody>

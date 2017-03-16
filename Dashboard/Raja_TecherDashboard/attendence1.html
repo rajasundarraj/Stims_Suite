@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Menu Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.js"></script>
+    <script src="js/control.js"></script>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+
+    <script src="js/excanvas.min.js"></script>
+    <script src="js/chart.min.js" type="text/javascript"></script>
+    <style type="text/css">
+        .card {
+            margin: 25px 25px 25px 25px;
+            text-align: center;
+            font-weight: bold;
+            color: white;
+            height: 220px;
+            box-shadow: 5px 10px 12px 0 rgba( 0, 0, 0, 0.2);
+            background-color: #00c2cc;
+            transition: 0.3s;
+            width: 160px;
+            border-radius: 15px;
+            backface-visibility: hidden;
+            padding: 0px;
+            position: relative;
+            overflow: hidden;
+        }
+        .card img {
+            z-index: 4;
+        }
+        .card:hover {
+            opacity: 1;
+            transform: translateY(-120px);
+            -webkit-transform: translateY(-8px);
+            -moz-transform: translateY(-8px);
+            -ms-transform: translateY(-40px);
+            -o-transform: translateY(-120px);
+            box-shadow: 10px 25px 40px 5px rgba( 0, 0, 0, 0.2);
+        }
+        .ava {
+            margin: 32px 0px 7px 16px;
+            width: 60px;
+            height: 60px;
+            border-radius: 450px 50px 500px 500px;
+        }
+        #navbar {
+            background-color: #4d1933;
+            color: white;
+        }
+        #back {
+            background-color: #da8bb3;
+        }
+        #Bar,
+        #Line,
+        #Pie,
+        #Donut,
+        #Chart {
+            display: none;
+        }
+        #cont {
+            display: none;
+        }
+        .widget {
+            position: relative;
+            clear: both;
+            width: auto;
+            margin-bottom: 2em;
+            overflow: hidden;
+        }
+        .widget-header {
+            position: relative;
+            height: 60px;
+            line-height: 10px;
+            background-color: #ffccff;
+            background: -moz-linear-gradient(top, #b3fff0 0%, #b3fff0 100%);
+            /* FF3.6+ */
+            
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #b3fff0), color-stop(100%, #f2efea));
+            /* Chrome,Safari4+ */
+            
+            background: -webkit-linear-gradient(top, #33cccc 0%, #33cccc 100%);
+            /* Chrome10+,Safari5.1+ */
+            
+            background: -o-linear-gradient(top, #ffccff 0%, #f2efea 100%);
+            /* Opera11.10+ */
+            
+            background: -ms-linear-gradient(top, #f9f6f1 0%, #f2efea 100%);
+            /* IE10+ */
+            
+            background: linear-gradient(top, #f9f6f1 0%, #f2efea 100%);
+            /* W3C */
+            
+            filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#f9f6f1', endColorstr='#f2efea');
+            -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f6f1', endColorstr='#f2efea')";
+            border: 1px solid #d6d6d6;
+            -webkit-background-clip: padding-box;
+        }
+        .widget-header h3 {
+            position: relative;
+            top: 2px;
+            left: 10px;
+            display: inline-block;
+            margin-right: 3em;
+            font-size: 14px;
+            font-weight: 800;
+            color: #525252;
+            line-height: 18px;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, .5);
+        }
+        .widget-header [class^="icon-"],
+        .widget-header [class*=" icon-"] {
+            display: inline-block;
+            margin-left: 13px;
+            margin-right: -2px;
+            font-size: 16px;
+            color: #555;
+            vertical-align: middle;
+        }
+        .widget-content {
+            margin: 0px 0px 0px -46px;
+            padding: 20px 15px 15px;
+            background: #FFF;
+            border: 1px solid #D5D5D5;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+        }
+        .widget-header+.widget-content {
+            border-top: none;
+            -webkit-border-top-left-radius: 0;
+            -webkit-border-top-right-radius: 0;
+            -moz-border-radius-topleft: 0;
+            -moz-border-radius-topright: 0;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+        .widget-nopad .widget-content {
+            padding: 0;
+        }
+        /* Widget Content Clearfix */
+        
+        .widget-content:before,
+        .widget-content:after {
+            content: "";
+            display: table;
+        }
+        .widget-content:after {
+            clear: both;
+        }
+        /* For IE 6/7 (trigger hasLayout) */
+        
+        .widget-content {
+            zoom: 1;
+        }
+        /* Widget Table */
+        
+        .widget-table .widget-content {
+            padding: 0;
+        }
+        .widget-table .table {
+            margin-bottom: 0;
+            border: none;
+        }
+        .widget-table .table tr td:first-child {
+            border-left: none;
+        }
+        .widget-table .table tr th:first-child {
+            border-left: none;
+        }
+        /* Widget Plain */
+        
+        .widget-plain {
+            background: transparent;
+            border: none;
+        }
+        .widget-plain .widget-content {
+            padding: 0;
+            background: transparent;
+            border: none;
+        }
+        /* Widget Box */
+        
+        .widget-box {} .widget-box .widget-content {
+            background: #E3E3E3;
+            background: #FFF;
+        }
+    </style>
+</head>
+
+<body ng-app="myApp">
+    <script type="text/javascript">
+        $(function() {
+            $("#datepicker");
+        });
+    </script>
+
+    <script type="text/javascript">
+        function line() { /* Coding for Line Chart view*/
+            document.getElementById('Line').style.display = 'inline';
+            document.getElementById('Bar').style.display = 'none';
+            document.getElementById('Pie').style.display = 'none';
+            document.getElementById('Chart').style.display = 'none';
+            document.getElementById('Donut').style.display = 'none';
+            document.getElementById("cont").style.display = 'none';
+        }
+
+        function bar() { /* Coding for Bar Chart view */
+            document.getElementById('Bar').style.display = 'inline';
+            document.getElementById('Line').style.display = 'none';
+            document.getElementById('Pie').style.display = 'none';
+            document.getElementById('Chart').style.display = 'none';
+            document.getElementById('Donut').style.display = 'none';
+            document.getElementById("cont").style.display = 'none';
+        }
+
+        function pie() { /* Coding for Pie Chart view*/
+            document.getElementById('Pie').style.display = 'inline';
+            document.getElementById('Line').style.display = 'none';
+            document.getElementById('Bar').style.display = 'none';
+            document.getElementById('Chart').style.display = 'none';
+            document.getElementById('Donut').style.display = 'none';
+            document.getElementById("cont").style.display = 'none';
+        }
+
+        function chart() { /* Coding for Round Chart view*/
+            document.getElementById('Chart').style.display = 'inline';
+            document.getElementById('Line').style.display = 'none';
+            document.getElementById('Bar').style.display = 'none';
+            document.getElementById('Pie').style.display = 'none';
+            document.getElementById('Donut').style.display = 'none';
+            document.getElementById("cont").style.display = 'none';
+        }
+
+        function donut() { /* Coding for Donut Chart view*/
+            document.getElementById('Donut').style.display = 'inline';
+            document.getElementById('Line').style.display = 'none';
+            document.getElementById('Bar').style.display = 'none';
+            document.getElementById('Pie').style.display = 'none';
+            document.getElementById('Chart').style.display = 'none';
+            document.getElementById("cont").style.display = 'none';
+        }
+
+        function card() { /* Coding for Attendance Grid view*/
+            document.getElementById("cont").style.display = 'inline';
+            document.getElementById('Bar').style.display = 'none';
+            document.getElementById('Line').style.display = 'none';
+            document.getElementById('Pie').style.display = 'none';
+            document.getElementById('Chart').style.display = 'none';
+            document.getElementById('Donut').style.display = 'none';
+        }
+
+ function tend(regid)
+                {
+
+                var present_Id = 'present_' + regid;
+                var absent_Id = 'absent_' + regid;
+                var OD_Id='od_'+regid;
+
+                var Present = document.getElementById(present_Id);
+                var Absent=document.getElementById(absent_Id);
+                var OD=document.getElementById(OD_Id);
+
+                if(Present.style.display == 'none')
+                {
+                Present.style.display = 'block';
+                Absent.style.display='none';
+                OD.style.display='none';
+                }
+
+                else if(Present.style.display=='block')
+                {
+                OD.style.display='none';
+                 Present.style.display='none';
+                Absent.style.display='block';
+                }
+
+                else if(OD.style.display=='block')
+                {
+                    Absent.style.display='none';
+                    OD.style.display='none';
+                    Present.style.display='block';
+                    
+                }
+                else
+                {
+                    Present.style.display='none';
+                    Absent.style.display='block';
+                }
+           
+            }
+
+             function X_OD_Function(regid)
+                {
+
+                var present_Id = 'present_' + regid;
+                var absent_Id = 'absent_' + regid;
+                var OD_Id='od_'+regid;
+
+                var Present = document.getElementById(present_Id);
+                var Absent=document.getElementById(absent_Id);
+                var OD=document.getElementById(OD_Id);
+
+                if(Present.style.display == 'none')
+                {
+                Present.style.display = 'block';
+                Absent.style.display='none';
+                OD.style.display='none';
+                }
+
+                else if(Present.style.display=='block')
+                {
+                OD.style.display='none';
+                 Present.style.display='none';
+                Absent.style.display='block';
+                }
+
+                else if(OD.style.display=='block')
+                {
+                    Absent.style.display='none';
+                    OD.style.display='none';
+                    Present.style.display='block';
+                    
+                }
+                else
+                {
+                    Present.style.display='none';
+                    Absent.style.display='block';
+                }
+           
+            }
+
+       
+        function Print() {
+            window.print();
+
+        }
+
+    </script>
+
+            
+
+<div class="container">
+            <ul class="nav navbar-nav">
+
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"> Class <span class="caret"></span></a>
+                    <ul class="dropdown-menu" id="back">
+                        <li><a onclick="card()">I</a>
+                        </li>
+                        <li><a onclick="card()">II</a>
+                        </li>
+                        <li><a onclick="card()">III</a>
+                        </li>
+                        <li><a onclick="card()">IV</a>
+                        </li>
+                        <li><a onclick="card()">V</a>
+                        </li>
+                        <li><a onclick="card()">VI</a>
+                        </li>
+                        <li><a onclick="card()">VII</a>
+                        </li>
+                        <li><a onclick="card()">VII</a>
+                        </li>
+                        <li><a onclick="card()">IX</a>
+                        </li>
+                        <li><a onclick="card()">X</a>
+                        </li>
+                        <li><a onclick="card()">XI</a>
+                        </li>
+                        <li><a onclick="card()">XII</a>
+                        </li>
+                    </ul>
+                </li>
+        </div>
+
+
+<script>
+
+
+   $(document).ready(function() {
+            $("#present_button").click(function() {
+                $(".Tick_Image").show();
+                $(".X_Image").hide();
+                $(".OD_Image").hide();
+            });
+        });
+
+    $(document).ready(function() {
+            $("#absent_button").click(function() {
+                $(".X_Image").show();
+                $(".Tick_Image").hide();
+                $(".OD_Image").hide();
+            });
+        });
+
+    $(document).ready(function() {
+            $("#od_button").click(function() {
+                $(".OD_Image").show();
+                $(".X_Image").hide();
+                $(".Tick_Image").hide();
+              
+            });
+        }); 
+
+</script>
+
+    </nav>
+
+    <div class="ui container" id="cont" ng-controller="DetailController">
+        <a href=""> <img src="photos/back.png" onclick="javascript:window.history.go(-1);" style="width: 40px;height: 40px;">
+        </a>
+        <a href="">
+            <img src="photos/next.png" style="float: right; width: 35px; height: 35px;" onclick="javascript:window.history.go(1);" style="width: 30px;height: 30px;">
+        </a>
+
+
+        <a href> <img id="Selection_Absent_Button" onclick="X_OD_Function(this.id);" src="photos/x.png" style="width:60px;height:60px; margin-left:500px;" >
+        </a>
+        <input type="button" value="OD" style="width:40px; height:40px; margin-left:20px;background-color: #601f1f; color: white">
+        <div class="ui grid">
+            <div class="five column row">
+                <div class="column" ng-repeat="x in details">
+
+                    <div class="card a" id="{{x.Reg_No}}" onclick="tend(this.id);" style="background-color:{{x.color}}; margin-left:80px;" >
+                        <img src="photos/tick.png" class="Tick_Image" id="present_{{x.Reg_No}}" style="height:30px; display: none;" width="30px" align="right" >
+
+                        <img src="photos/xx.png" class="X_Image" id="absent_{{x.Reg_No}}" style="margin-right: 10px;margin-top: 20px;" width="15px" height="15px;" align="right" hidden>
+
+                        <img ng-src="{{x.Photo}}" alt="Avatar" class="ava" style="margin-left:30px;">
+                        <h4 style="color:black"> {{ x.Reg_No }}</h4>
+                        <p style="color: black">{{ x.Name }}</p>
+                        <p style="color: black" height: 220px; width: 160px;>{{ x.Department}}</p>
+                        
+                       <img src="Photos\od_3.png" height="30px" width="30px" class="OD_Image" id="od_{{x.Reg_No}}"  align="right" hidden>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <center>
+            <button class="ui teal button" id="btnmodal">Submit</button>
+            <button class="ui teal button">Cancel</button>
+
+        </center>
+
+        <div id="TableView1" style="display:none">
+            <div class=" ui modal" id="modal4">
+                <i class="close icon"></i>
+                <div class="header">
+                    Confirm Absentees
+                </div>
+                <div class="image content">
+                    <div class="ui medium image">
+                    
+                    </div>
+                    <div class="description">
+                        <div class="ui header">Today's Absentees</div>
+                       
+                    </div>
+                </div>
+                <div class="actions">
+                    <div class="ui positive huge right labeled icon button">
+                        <a href="Dharani.pdf" style="text-decoration: none; color: white;" tooltip-placement="left" tooltip="13GE403-PROBABILITY AND QUEUEING THEORY.pdf" download="" data-placement="top">
+                     Save As
+                    <i class="checkmark icon"></i></a>
+                    </div>
+
+                    <button class="ui positive huge right labeled icon button" id="print_id" onclick="Print()">Print
+                        <i class="checkmark icon"></i>
+                    </button>
+
+
+                    <div class="ui positive huge right labeled icon button">
+                        Send SMS
+                        <i class="checkmark icon"></i>
+                    </div>
+                    <div class="ui negative huge right labeled icon button" style="width:20px;">
+                        Cancel
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <center>
+            <div class="span6">
+                <div class="widget" id="Bar">
+                    <div class="widget-header" style="width: 1150px;">
+                        <i class="icon-bar-chart"></i>
+                        <h3>
+                                    Bar Chart</h3>
+                    </div>
+                    <!-- /widget-header -->
+                    <div class="widget-content" style="margin-left:20px;margin-right: 25px ;  width: 1100px; height:430px;">
+                        <canvas id="bar-chart" class="chart-holder" width="1000" height="350">
+                        </canvas>
+                        <!-- /bar-chart -->
+                    </div>
+                    <!-- /widget-content -->
+                </div>
+                <!-- /widget -->
+                <div class="widget" id="Line">
+                    <div class="widget-header" style="width: 1150px;">
+                        <i class="icon-bar-chart"></i>
+                        <h3>
+                                    Line Chart</h3>
+                    </div>
+                    <!-- /widget-header -->
+                    <div class="widget-content" style="margin-left:20px;margin-right: 25px ;  width: 1100px; height:430px;">
+                        <canvas id="area-chart" class="chart-holder" width="1000" height="350">
+                        </canvas>
+                        <!-- /line-chart -->
+                    </div>
+                    <!-- /widget-content -->
+                </div>
+                <!-- /widget -->
+                <div class="widget" id="Pie">
+                    <div class="widget-header" style="width: 1150px;">
+                        <i class="icon-bar-chart"></i>
+                        <h3>
+                                    Pie Chart</h3>
+                    </div>
+                    <!-- /widget-header -->
+                    <div class="widget-content" style="margin-left:20px;margin-right: 25px ;  width: 1100px; height:430px;">
+                        <canvas id="pie-chart" class="chart-holder" width="1000" height="350">
+                        </canvas>
+                        <!-- /pie-chart -->
+                    </div>
+                    <!-- /widget-content -->
+                </div>
+                <!-- /widget -->
+            </div>
+            <!-- /span6 -->
+
+            <div class="span6">
+                <div class="widget" id="Donut">
+                    <div class="widget-header" style="width: 1150px;">
+                        <i class="icon-bar-chart"></i>
+                        
+                            <h3>        Donut Chart</h3>
+                    </div>
+                    <!-- /widget-header -->
+                    <div class="widget-content" style="margin-left:20px;margin-right: 25px ;  width: 1100px; height:430px;">
+                        <canvas id="donut-chart" class="chart-holder" width="1000" height="350">
+                        </canvas>
+                        <!-- /bar-chart -->
+                    </div>
+                    <!-- /widget-content -->
+                </div>
+                <!-- /widget -->
+                <div class="widget" id="Chart">
+                    <div class="widget-header" style="width: 1150px;">
+                        <i class="icon-bar-chart"></i>
+                        <h3>
+                                    A Chart</h3>
+                    </div>
+                    <!-- /widget-header -->
+                    <div class="widget-content" style="margin-left:20px;margin-right: 25px ;  width: 1100px; height:430px;">
+                        <canvas id="line-chart" class="chart-holder" width="1000" height="350">
+                        </canvas>
+                        <!-- /-chart -->
+                    </div>
+                    <!-- /widget-content -->
+                </div>
+                <!-- /widget -->
+            </div>
+
+            <script type="text/javascript">
+                var doughnutData = [{
+                        value: 30,
+                        color: "#F1C40F"
+                    }, {
+                        value: 50,
+                        color: "#273746"
+                    }, {
+                        value: 100,
+                        color: "#E74C3C"
+                    }, {
+                        value: 40,
+                        color: "#949FB1"
+                    }, {
+                        value: 120,
+                        color: "#4D5360"
+                    }
+
+                ];
+
+                var myDoughnut = new Chart(document.getElementById("donut-chart").getContext("2d")).Doughnut(doughnutData);
+
+
+                var lineChartData = {
+                    labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                    datasets: [{
+                        fillColor: "rgba(500,120,120,15)",
+                        strokeColor: "rgba(220,220,220,1)",
+                        pointColor: "rgba(600,820,920,36)",
+                        pointStrokeColor: "#000",
+                        data: [165, 259, 290, 581, 756, 55, 40, 70, 89, 20, 76, 90]
+                    }, {
+                        fillColor: "rgba(151,187,205,0.5)",
+                        strokeColor: "rgba(151,187,205,1)",
+                        pointColor: "rgba(151,187,205,1)",
+                        pointStrokeColor: "#ff0000",
+                        data: [200, 300, 15, 20, 250, 420, 40, 89, 76, 120, 560, 200]
+                    }]
+
+                }
+
+                var myLine = new Chart(document.getElementById("area-chart").getContext("2d")).Line(lineChartData);
+
+
+                var barChartData = {
+                    labels: ["January", "February", "March", "April", "May", "June", "July"],
+                    datasets: [{
+                        fillColor: "rgba(36,50,250,0.5)",
+                        strokeColor: "rgba(220,220,220,1)",
+                        data: [65, 59, 90, 81, 56, 55, 40]
+                    }, {
+                        fillColor: "rgba(151,187,205,1)",
+                        strokeColor: "rgba(151,187,205,1)",
+                        data: [28, 48, 40, 19, 96, 27, 100]
+                    }]
+
+                }
+
+                var myLine = new Chart(document.getElementById("bar-chart").getContext("2d")).Bar(barChartData);
+
+                var pieData = [{
+                        value: 30,
+                        color: "#F38630"
+                    }, {
+                        value: 50,
+                        color: "#E0E4CC"
+                    }, {
+                        value: 100,
+                        color: "#69D2E7"
+                    }
+
+                ];
+
+                var myPie = new Chart(document.getElementById("pie-chart").getContext("2d")).Pie(pieData);
+
+                var chartData = [{
+                    value: Math.random(),
+                    color: "#D97041"
+                }, {
+                    value: Math.random(),
+                    color: "#C7604C"
+                }, {
+                    value: Math.random(),
+                    color: "#21323D"
+                }, {
+                    value: Math.random(),
+                    color: "#9D9B7F"
+                }, {
+                    value: Math.random(),
+                    color: "#7D4F6D"
+                }, {
+                    value: Math.random(),
+                    color: "#584A5E"
+                }];
+                var myPolarArea = new Chart(document.getElementById("line-chart").getContext("2d")).PolarArea(chartData);
+            </script>
+        </center>
+        <!-- /span6 -->
+    </div>
+    <!-- /row -->
+
+
+
+</body>
+<script>
+    $('#btnmodal').click(function() {
+$('.ui.modal').modal('show');
+    })
+
+</script>
+
+</html>
